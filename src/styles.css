@@ -10,12 +10,12 @@
 
 :root {
   --background: #0F0A0D;
-  --surface: #1E2A2E;
+  --surface: #1A0F12;        /* Dark maroon tint */
   --foreground: #E8E0D4;
-  --mauve: #C89BAE;
+  --mauve: #8B1E3F;           /* Deep maroon/red */
   --gold: #B8A88A;
   --muted: #9A8B82;
-  --border: rgba(184, 168, 138, 0.15);
+  --border: rgba(139, 30, 63, 0.15);
 }
 
 @layer base {
@@ -81,4 +81,105 @@
     opacity: 1;
     transform: translateY(0);
   }
-}a
+
+  /* ========== FLOWER ANIMATIONS ========== */
+  
+  /* Falling flowers - top to bottom */
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-fall {
+    animation: fall linear infinite;
+  }
+
+  /* Floating flowers - bottom to top */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-200px) rotate(-180deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-float-up {
+    animation: floatUp linear infinite;
+  }
+
+  /* Gentle sway animation for static flowers */
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(5px) rotate(5deg);
+    }
+  }
+
+  .animate-sway {
+    animation: sway 6s ease-in-out infinite;
+  }
+
+  /* Slow drift for background flowers */
+  @keyframes drift {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(10px) translateY(-10px);
+    }
+    50% {
+      transform: translateX(-5px) translateY(-15px);
+    }
+    75% {
+      transform: translateX(-10px) translateY(-5px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  .animate-drift {
+    animation: drift 12s ease-in-out infinite;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mauve);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}

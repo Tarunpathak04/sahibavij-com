@@ -26,96 +26,110 @@ function HomePage() {
   });
 
   return (
-    <div className="bg-background">
-      {/* HERO SECTION - FULL SCREEN */}
+    <div className="bg-background min-h-screen">
+      {/* HERO SECTION */}
       <section className="relative w-full h-screen overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0">
           <img 
             src={heroImg} 
-            alt="Garden flowers" 
-            className="w-full h-full object-cover object-center"
+            alt="Luxury Background" 
+            className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay - Better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+          {/* Clean Gradient - No Blur */}
+          <div className="absolute inset-0 bg-gradient-to-r 
+            from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t 
+            from-background/80 via-background/20 to-transparent" />
         </div>
 
-        {/* Content - Perfectly Centered Left with proper positioning */}
-        <div className="relative h-full w-full flex items-center z-10">
-          <div className="container mx-auto px-5 md:px-8 lg:px-12">
-            <div className="max-w-2xl lg:max-w-3xl">
-              {/* FRESH Label */}
-              <p className="text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold mb-4 sm:mb-6 md:mb-8 animate-fade-up">
-                FRESH
-              </p>
-              
-              {/* Heading - From Our Garden */}
-              <h1 className="mb-4 sm:mb-6 md:mb-8">
-                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream font-serif font-light tracking-tight animate-fade-up" style={{animationDelay: "0.1s"}}>
-                  From Our
-                </span>
-                <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-mauve font-serif font-light italic mt-1 sm:mt-2 animate-fade-up" style={{animationDelay: "0.2s"}}>
-                  Garden
+        {/* Content */}
+        <div className="relative h-full flex items-center">
+          <div className="w-full px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="max-w-4xl md:max-w-5xl">
+              {/* Sahiba Vij - 10% Smaller than before */}
+              <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] xl:text-[9rem] text-cream font-light tracking-tight leading-[0.95] animate-fade-up">
+                Sahiba
+                <br />
+                <span className="text-mauve italic block mt-2 animate-fade-up" style={{animationDelay: "0.1s"}}>
+                  Vij
                 </span>
               </h1>
               
-              {/* Description - Responsive text */}
-              <p className="text-cream/80 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-relaxed max-w-lg lg:max-w-xl mb-8 sm:mb-10 md:mb-12 animate-fade-up" style={{animationDelay: "0.3s"}}>
-                We are proud to boast flowers that are days fresher than you can buy from a shop or the market, as we obtain our flowers directly from the growers and deliver them to you in one of our bespoke, refrigerated vans.
+              {/* Tagline - Clean and Visible */}
+              <div className="my-8 sm:my-10 animate-fade-up" style={{animationDelay: "0.2s"}}>
+                <div className="w-16 h-px bg-gold mb-5" />
+                <p className="text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] text-gold uppercase font-light">
+                  EVERY SPARKLE HAS ITS OWN STORY
+                </p>
+                <div className="w-16 h-px bg-gold mt-5" />
+              </div>
+              
+              {/* Description */}
+              <p className="text-cream/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl animate-fade-up" style={{animationDelay: "0.3s"}}>
+                We are proud to boast flowers that are days fresher than you can buy from a shop or the market, as we obtain our flowers directly from the growers and deliver you in one of our bespoke, refrigerated vans.
               </p>
             </div>
           </div>
         </div>
+
+        {/* Bottom Bar - Clean */}
+        <div className="absolute bottom-5 left-0 right-0 flex justify-between items-center px-5 sm:px-8 md:px-12 lg:px-16 text-[9px] sm:text-[10px] tracking-[0.25em] text-cream/40">
+          <span>ENG</span>
+          <div className="flex gap-4 sm:gap-5">
+            <span>Q Search</span>
+            <span>IN</span>
+            <span>5/15/2026</span>
+          </div>
+        </div>
+      </section>
+
+      {/* BRAND INTRO */}
+      <section className="bg-surface py-20 sm:py-24 md:py-28">
+        <div className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+          <p className="text-muted text-sm sm:text-base md:text-lg text-center max-w-3xl mx-auto leading-relaxed">
+            We are proud to bring you the finest blooms, handpicked from our own gardens 
+            and curated with an editor's eye for beauty, impermanence, and quiet luxury.
+          </p>
+        </div>
       </section>
 
       {/* FEATURED SECTION */}
-      <section className="container mx-auto px-5 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-gold mb-3 md:mb-4">Signature Pieces</p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-cream">Featured Collection</h2>
-          <div className="gold-rule mx-auto mt-5 md:mt-6" />
+      <section className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-20 sm:py-24 md:py-28">
+        <div className="text-center mb-12 sm:mb-16">
+          <p className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-gold mb-3">Signature Pieces</p>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream">Featured Collection</h2>
+          <div className="w-12 h-px bg-gold mx-auto mt-5" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featured?.slice(0, 3).map((product, idx) => (
             <ProductCard key={product.id} p={product} index={idx} />
           ))}
         </div>
       </section>
 
-      {/* BRAND INTRO */}
-      <section className="bg-surface py-16 md:py-24 lg:py-32">
-        <Reveal className="container mx-auto px-5 md:px-8 lg:px-12 max-w-3xl text-center">
-          <p className="text-muted text-sm md:text-base leading-relaxed">
-            We are proud to bring you the finest blooms, handpicked from our own gardens 
-            and curated with an editor's eye for beauty, impermanence, and quiet luxury.
-          </p>
-        </Reveal>
-      </section>
-
       {/* DESIGNER SECTION */}
       <section className="bg-background">
-        <div className="grid md:grid-cols-2 gap-0">
-          <Reveal className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
-            <img src={founderImg} alt="Sahiba Vij" className="w-full h-full object-cover brightness-90" />
-          </Reveal>
-          <Reveal delay={150} className="flex items-center p-6 md:p-8 lg:p-12 bg-surface">
+        <div className="grid md:grid-cols-2">
+          <div className="relative h-[400px] sm:h-[500px] md:h-[550px] overflow-hidden">
+            <img src={founderImg} alt="Sahiba Vij" className="w-full h-full object-cover" />
+          </div>
+          <div className="flex items-center p-8 sm:p-10 md:p-14 bg-surface">
             <div>
-              <p className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-gold mb-4 md:mb-6">Meet the Designer</p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream leading-[1.1] mb-4 md:mb-6">
+              <p className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-gold mb-4">Meet the Designer</p>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream leading-[1.2] mb-4">
                 A muse with <span className="text-mauve italic">14 years</span> of craft
               </h2>
-              <div className="gold-rule mb-6 md:mb-8" />
-              <p className="text-muted text-sm md:text-base leading-relaxed mb-5 md:mb-6">
-                Sahiba Vij blends a Media & Culture Studies background from London with 
-                14 years of jewellery design — creating cinematic, story-driven pieces 
-                that feel luxurious yet remain beautifully accessible.
+              <div className="w-12 h-px bg-gold mb-6" />
+              <p className="text-muted text-sm sm:text-base leading-relaxed mb-6">
+                Sahiba Vij blends a Media & Culture Studies background from London with 14 years of jewellery design — creating cinematic, story-driven pieces that feel luxurious yet remain beautifully accessible.
               </p>
-              <Link to="/about" className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-mauve hover:text-gold transition-colors">
+              <Link to="/about" className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-mauve hover:text-gold transition-colors">
                 Read Her Story →
               </Link>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -144,27 +158,25 @@ function NewsletterSection() {
   };
 
   return (
-    <section className="container mx-auto px-5 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
-      <Reveal>
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-gold mb-4 md:mb-6">Join the Muse List</p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-cream mb-3 md:mb-4">Be the first to know</h2>
-          <p className="text-muted text-sm md:text-base mb-8 md:mb-10">New collections, limited drops, and quiet stories — straight to your inbox.</p>
-          <form onSubmit={subscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              required
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 md:px-5 py-3 bg-background border border-border text-cream placeholder:text-muted/50 focus:outline-none focus:border-mauve transition-colors text-sm"
-            />
-            <button disabled={loading} className="px-6 md:px-8 py-3 bg-mauve text-background text-[10px] md:text-xs tracking-[0.3em] uppercase hover:bg-gold transition-all disabled:opacity-50">
-              {loading ? "..." : "Subscribe"}
-            </button>
-          </form>
-        </div>
-      </Reveal>
+    <section className="container mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-20 sm:py-24 md:py-28">
+      <div className="text-center max-w-md sm:max-w-lg mx-auto">
+        <p className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-gold mb-4">Join the Muse List</p>
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-cream mb-3">Be the first to know</h2>
+        <p className="text-muted text-sm sm:text-base mb-8">New collections, limited drops, and quiet stories — straight to your inbox.</p>
+        <form onSubmit={subscribe} className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            required
+            placeholder="your@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 px-5 py-3 bg-background border border-gold/20 text-cream placeholder:text-muted/50 focus:outline-none focus:border-mauve transition-colors text-sm"
+          />
+          <button disabled={loading} className="px-8 py-3 bg-mauve text-background text-[11px] tracking-[0.3em] uppercase hover:bg-gold transition-all duration-500 disabled:opacity-50">
+            {loading ? "..." : "Subscribe"}
+          </button>
+        </form>
+      </div>
     </section>
   );
 }
