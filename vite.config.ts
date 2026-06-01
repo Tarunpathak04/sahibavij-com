@@ -6,17 +6,11 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// SPA mode ON — TanStack Start ek index.html shell banata hai jo har route pe load hota hai.
-// Isse Vercel pe 404 fix hota hai (client-side router routing sambhalta hai).
+// ORIGINAL config — sirf server entry. Koi spa/prerender nahi.
+// Cloudflare Worker khud SSR chalata hai aur har route handle karta hai (404 issue nahi aata),
+// isliye SPA/prerender ki zaroorat nahi — aur wahi crash kara rahe the.
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
-    spa: {
-      enabled: true,
-    },
-    prerender: {
-      enabled: true,
-      crawlLinks: true,
-    },
   },
 });
