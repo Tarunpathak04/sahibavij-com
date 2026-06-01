@@ -6,10 +6,17 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+// SPA mode ON — TanStack Start ek index.html shell banata hai jo har route pe load hota hai.
+// Isse Vercel pe 404 fix hota hai (client-side router routing sambhalta hai).
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
+    spa: {
+      enabled: true,
+    },
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+    },
   },
 });
