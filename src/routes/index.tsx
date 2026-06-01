@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { ProductCard, type Product } from "@/components/ProductCard";
 import heroImg from "@/assets/hero.png";
-import jewelryImg from "@/assets/pic3.png";
+import jewelryImg from "@/assets/Pic3.png";
 import founderImg from "@/assets/founder-dark.jpg";
 import { useState } from "react";
 import { toast } from "sonner";
