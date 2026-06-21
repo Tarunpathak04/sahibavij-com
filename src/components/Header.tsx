@@ -32,15 +32,15 @@ export function Header() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#090306] py-2 border-b border-[#3a2730]"
-            : "bg-gradient-to-b from-[#090306] via-[#090306]/95 to-[#090306]/80 py-3"
+            ? "bg-[#090306] border-b border-[#3a2730]"
+            : "bg-gradient-to-b from-[#090306] via-[#090306]/95 to-[#090306]/80"
         }`}
       >
         {/* TOP GLOW */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(120,40,70,0.14),transparent_70%)] pointer-events-none" />
 
         <div className="container mx-auto px-5 md:px-8 lg:px-14">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between h-16 md:h-[72px]">
             
             {/* LOGO */}
             <Link to="/" className="shrink-0 group">
@@ -67,10 +67,10 @@ export function Header() {
                   alt="Sahiba Vij"
                   className="
                     relative
-                    h-12
-                    sm:h-14
-                    md:h-16
-                    lg:h-[72px]
+                    h-[80px]
+                    sm:h-[96px]
+                    md:h-[112px]
+                    lg:h-[130px]
                     w-auto
                     object-contain
                     transition-all
@@ -214,11 +214,11 @@ export function Header() {
       </header>
 
       {/* SPACER */}
-      <div className="h-20 md:h-24" />
+      <div className="h-16 md:h-[72px]" />
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="fixed inset-0 top-20 bg-[#090306] z-40 md:hidden">
+        <div className="fixed inset-0 top-16 md:top-[72px] bg-[#090306] z-40 md:hidden">
           <div className="container px-6 py-10 flex flex-col gap-3">
             
             {/* Mobile Logo */}
@@ -226,7 +226,7 @@ export function Header() {
               <img
                 src={logoImg}
                 alt="Logo"
-                className="h-20 object-contain"
+                className="h-40 object-contain"
               />
             </div>
 

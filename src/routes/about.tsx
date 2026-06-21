@@ -34,9 +34,7 @@ function AboutPage() {
               inspired by cinematic jewellery from <em>Bajirao Mastani</em> and <em>Heeramandi</em>.
             </p>
             <p>
-              With 14 years of experience, she creates story-driven pieces that are luxurious yet affordable.
-              Every piece uses <strong className="text-foreground">micron gold polish</strong> — the same finish
-              used in real fine jewellery — making wearable luxury accessible.
+            With over 14 years of experience, she blends classic artistry with modern sophistication, crafting pieces designed to be worn, loved, and remembered.
             </p>
             <p>
               The brand makes signature statement pieces — traditional Indian design with a modern twist.
@@ -62,7 +60,7 @@ function AboutPage() {
         {[
           { t: "Cinematic", d: "Inspired by the courtyards of Bajirao Mastani and the verses of Heeramandi." },
           { t: "Story-Driven", d: "Every piece carries a story — italics whispered, not shouted." },
-          { t: "Accessible Luxury", d: "Micron gold polish — fine jewellery feel, without the fine jewellery cost." },
+          { t: "Uniquely Yours", d: "Designed to reflect your individuality, every piece is as distinctive as the woman who wears it." },
         ].map((b) => (
           <div key={b.t}>
             <p className="text-xs tracking-[0.3em] uppercase text-gold mb-3">✦</p>

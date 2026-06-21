@@ -121,7 +121,7 @@ export function Footer() {
                 max-w-sm
               "
             >
-              Every sparkle says its own story
+              Every sparkle has its own story
             </p>
 
             <div className="w-14 h-px bg-gradient-to-r from-gold to-transparent mt-5 mb-6" />
@@ -236,8 +236,6 @@ export function Footer() {
               {[
                 "Shop All",
                 "New Arrivals",
-                "Best Sellers",
-                "Limited Edition",
                 "Bridal Collection",
               ].map((item) => (
                 <li key={item}>
@@ -564,7 +562,7 @@ export function Footer() {
                   text-white/35
                 "
               >
-                Crafted With Love
+                Crafted With "Love"
               </p>
 
               <Flower2 className="w-3 h-3 text-gold/50" />

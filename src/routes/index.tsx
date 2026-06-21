@@ -264,7 +264,7 @@ function HomePage() {
                       [text-shadow:_0_2px_12px_rgba(184,168,138,0.25)]
                     "
                   >
-                    Every sparkle says its own story
+                    Every sparkle has its own story
                   </p>
 
                   <div className="w-24 h-px bg-gold mt-5" />
