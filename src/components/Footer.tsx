@@ -235,8 +235,14 @@ export function Footer() {
             <ul className="space-y-4">
               {[
                 "Shop All",
-                "New Arrivals",
                 "Bridal Collection",
+                "Mangtika Collection",
+                "Nose Pin Collection",
+                "Necklace Collection",
+                "Earrings Collection",
+                "Ring Collection",
+                "Bangle Collection",
+
               ].map((item) => (
                 <li key={item}>
                   <Link

@@ -11,11 +11,13 @@ export const BRAND = {
 
 export const CATEGORIES = [
   { value: "all", label: "All" },
-  { value: "necklaces", label: "Necklaces" },
-  { value: "earrings", label: "Earrings" },
-  { value: "rings", label: "Rings" },
-  { value: "bangles", label: "Bangles" },
-  { value: "bridal", label: "Bridal Sets" },
+  { value: "Necklaces", label: "Necklaces" },
+  { value: "Earrings", label: "Earrings" },
+  { value: "Ring", label: "Rings" },
+  { value: "Bangles", label: "Bangles" },
+  { value: "Bridal", label: "Bridal Sets" },
+  { value: "Mangtika", label: "Mangtika" },
+  { value: "Nose Pin", label: "Nose Pin" },
 ];
 
 
