@@ -67,10 +67,10 @@ export function Header() {
                   alt="Sahiba Vij"
                   className="
                     relative
-                    h-12
-                    sm:h-14
-                    md:h-16
-                    lg:h-[72px]
+                    h-16
+                    sm:h-20
+                    md:h-24
+                    lg:h-28
                     w-auto
                     object-contain
                     transition-all
@@ -214,7 +214,7 @@ export function Header() {
       </header>
 
       {/* SPACER */}
-      <div className="h-20 md:h-24" />
+      <div className="h-24 md:h-28" />
 
       {/* MOBILE MENU */}
       {open && (
@@ -226,7 +226,7 @@ export function Header() {
               <img
                 src={logoImg}
                 alt="Logo"
-                className="h-20 object-contain"
+                className="h-24 object-contain"
               />
             </div>
 
