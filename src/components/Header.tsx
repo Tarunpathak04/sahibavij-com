@@ -67,17 +67,10 @@ export function Header() {
                   alt="Sahiba Vij"
                   className="
                     relative
-<<<<<<< HEAD
                     h-16
                     sm:h-20
                     md:h-24
                     lg:h-28
-=======
-                    h-[80px]
-                    sm:h-[96px]
-                    md:h-[112px]
-                    lg:h-[130px]
->>>>>>> 6a299a71f3de311a83bbc85ed8d2457180f8dfc8
                     w-auto
                     object-contain
                     transition-all
@@ -221,11 +214,7 @@ export function Header() {
       </header>
 
       {/* SPACER */}
-<<<<<<< HEAD
       <div className="h-24 md:h-28" />
-=======
-      <div className="h-16 md:h-[72px]" />
->>>>>>> 6a299a71f3de311a83bbc85ed8d2457180f8dfc8
 
       {/* MOBILE MENU */}
       {open && (
@@ -237,11 +226,7 @@ export function Header() {
               <img
                 src={logoImg}
                 alt="Logo"
-<<<<<<< HEAD
                 className="h-24 object-contain"
-=======
-                className="h-40 object-contain"
->>>>>>> 6a299a71f3de311a83bbc85ed8d2457180f8dfc8
               />
             </div>
 
