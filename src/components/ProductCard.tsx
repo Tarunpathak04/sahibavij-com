@@ -48,7 +48,7 @@ export function ProductCard({
         {/* IMAGE */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src={p.images[0]}
+           src={p.images?.[0] || "/placeholder-image.webp"}
             alt={p.name}
             className="
               w-full

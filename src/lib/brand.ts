@@ -13,11 +13,11 @@ export const CATEGORIES = [
   { value: "all", label: "All" },
   { value: "Necklaces", label: "Necklaces" },
   { value: "Earrings", label: "Earrings" },
-  { value: "Ring", label: "Rings" },
-  { value: "Bangles", label: "Bangles" },
+  { value: "rings", label: "Rings" },
+  { value: "bangles", label: "Bangles" },
   { value: "Bridal", label: "Bridal Sets" },
   { value: "Mangtika", label: "Mangtika" },
-  { value: "Nose Pin", label: "Nose Pin" },
+  { value: "nosepin", label: "Nose Pin" },
 ];
 
 
