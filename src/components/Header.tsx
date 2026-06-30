@@ -39,11 +39,11 @@ export function Header() {
         {/* TOP GLOW */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(120,40,70,0.14),transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-5 md:px-8 lg:px-14">
-          <div className="flex items-center justify-between h-16 md:h-[72px]">
+        <div className="container mx-auto px-3 sm:px-5 md:px-8 lg:px-14">
+          <div className="flex items-center justify-between h-[100px] sm:h-[110px] md:h-[100px] lg:h-[120px]">
             
-            {/* LOGO */}
-            <Link to="/" className="shrink-0 group">
+            {/* LOGO - BIGGER */}
+            <Link to="/" className="shrink-0 group -ml-2 sm:ml-0">
               <div className="relative flex items-center">
                 
                 {/* Glow */}
@@ -67,10 +67,11 @@ export function Header() {
                   alt="Sahiba Vij"
                   className="
                     relative
-                    h-16
-                    sm:h-20
-                    md:h-24
-                    lg:h-28
+                    h-[100px]
+                    xs:h-[110px]
+                    sm:h-[120px]
+                    md:h-32
+                    lg:h-36
                     w-auto
                     object-contain
                     transition-all
@@ -81,7 +82,7 @@ export function Header() {
               </div>
             </Link>
 
-            {/* NAVIGATION */}
+            {/* NAVIGATION - HIDDEN ON MOBILE */}
             <nav className="hidden md:flex items-center">
               <div
                 className="
@@ -130,7 +131,7 @@ export function Header() {
             </nav>
 
             {/* RIGHT ICONS */}
-            <div className="flex items-center gap-5 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 md:gap-5 shrink-0">
               
               {/* Wishlist */}
               <Link
@@ -143,7 +144,7 @@ export function Header() {
                   duration-300
                 "
               >
-                <Heart className="w-[19px] h-[19px]" strokeWidth={1.5} />
+                <Heart className="w-[20px] sm:w-[22px] h-[20px] sm:h-[22px]" strokeWidth={1.5} />
               </Link>
 
               {/* Cart */}
@@ -159,7 +160,7 @@ export function Header() {
               >
                 <div className="relative">
                   <ShoppingBag
-                    className="w-[19px] h-[19px]"
+                    className="w-[20px] sm:w-[22px] h-[20px] sm:h-[22px]"
                     strokeWidth={1.5}
                   />
 
@@ -194,39 +195,35 @@ export function Header() {
                   text-[#d8c7b7]
                   hover:text-[#f1d49a]
                   transition-all
+                  p-1
                 "
                 onClick={() => setOpen(!open)}
               >
                 {open ? (
-                  <X className="w-6 h-6" strokeWidth={1.5} />
+                  <X className="w-7 sm:w-8 h-7 sm:h-8" strokeWidth={1.5} />
                 ) : (
-                  <Menu className="w-6 h-6" strokeWidth={1.5} />
+                  <Menu className="w-7 sm:w-8 h-7 sm:h-8" strokeWidth={1.5} />
                 )}
               </button>
             </div>
           </div>
         </div>
-
-        {/* BOTTOM LINE */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="h-px bg-gradient-to-r from-transparent via-[#c7a878]/30 to-transparent" />
-        </div>
       </header>
 
-      {/* SPACER */}
-      <div className="h-24 md:h-28" />
+      {/* SPACER - MATCHES HEADER HEIGHT */}
+      <div className="h-[100px] sm:h-[110px] md:h-[100px] lg:h-[120px]" />
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="fixed inset-0 top-16 md:top-[72px] bg-[#090306] z-40 md:hidden">
-          <div className="container px-6 py-10 flex flex-col gap-3">
+        <div className="fixed inset-0 top-[100px] sm:top-[110px] bg-[#090306] z-40 md:hidden">
+          <div className="container px-4 sm:px-6 py-8 sm:py-10 flex flex-col gap-3">
             
-            {/* Mobile Logo */}
-            <div className="flex justify-center mb-8">
+            {/* Mobile Logo - MASSIVE */}
+            <div className="flex justify-center mb-8 sm:mb-10">
               <img
                 src={logoImg}
                 alt="Logo"
-                className="h-24 object-contain"
+                className="h-48 sm:h-56 md:h-64 w-auto object-contain"
               />
             </div>
 
@@ -237,10 +234,10 @@ export function Header() {
                 to={n.to}
                 onClick={() => setOpen(false)}
                 className="
-                  py-4
+                  py-5 sm:py-6
                   text-center
                   rounded-xl
-                  text-sm
+                  text-base sm:text-lg
                   tracking-[0.3em]
                   uppercase
                   font-semibold
@@ -249,6 +246,7 @@ export function Header() {
                   border
                   border-[#2a1a20]
                   hover:text-[#f1d49a]
+                  hover:border-[#d4206a]/30
                   transition-all
                 "
               >
