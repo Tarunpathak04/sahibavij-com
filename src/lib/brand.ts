@@ -11,7 +11,7 @@ export const BRAND = {
 
 export const CATEGORIES = [
   { value: "all", label: "All" },
-  { value: "Necklaces", label: "Necklaces" },
+  { value: "Necklace", label: "Necklaces" },
   { value: "Earrings", label: "Earrings" },
   { value: "rings", label: "Rings" },
   { value: "bangles", label: "Bangles" },
