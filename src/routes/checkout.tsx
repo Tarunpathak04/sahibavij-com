@@ -25,13 +25,13 @@ function CheckoutPage() {
   const items = useCart();
   const subtotal = items.reduce((s, i) => s + i.price * i.quantity, 0);
   const [submitting, setSubmitting] = useState(false);
-  const [confirmedOrder, setConfirmedOrder] = useState<{
+  const [confirmedOrder, setConfirmedOrder] = useState<null | {
     orderId: string;
     total: number;
     name: string;
     address: string;
     itemList: string;
-  } | null>(null);
+  }>(null);
 
   if (items.length === 0 && !confirmedOrder) {
     return (
@@ -45,10 +45,17 @@ function CheckoutPage() {
   }
 
   if (confirmedOrder) {
-    const message = encodeURIComponent(
-      `Hi Sahiba Vij team! I just placed an order.\nOrder ID: ${confirmedOrder.orderId}\nItems: ${confirmedOrder.itemList}\nTotal: ${formatINR(confirmedOrder.total)}\nName: ${confirmedOrder.name}\nAddress: ${confirmedOrder.address}\nPlease confirm my order. Thank you!`
-    );
-    const waUrl = `https://wa.me/${BRAND.whatsappNumber}?text=${message}`;
+    const msg = [
+      "Hi Sahiba Vij team! I just placed an order.",
+      "Order ID: " + confirmedOrder.orderId,
+      "Items: " + confirmedOrder.itemList,
+      "Total: " + formatINR(confirmedOrder.total),
+      "Name: " + confirmedOrder.name,
+      "Address: " + confirmedOrder.address,
+      "Please confirm my order. Thank you!",
+    ].join("\n");
+
+    const waUrl = "https://wa.me/" + BRAND.whatsappNumber + "?text=" + encodeURIComponent(msg);
 
     return (
       <div className="container mx-auto px-4 py-16 md:py-24 max-w-2xl text-center">
@@ -72,29 +79,19 @@ function CheckoutPage() {
           </p>
         </div>
 
-        {/* WhatsApp button — pink */}
-        
+        <a
           href={waUrl}
           target="_blank"
           rel="noreferrer"
-          className="
-            inline-flex items-center justify-center gap-3
-            w-full max-w-md
-            bg-gradient-to-r from-[#d4206a] to-[#e84d8a]
-            text-white py-5 rounded-full
-            text-sm tracking-[0.2em] uppercase font-bold
-            shadow-[0_8px_30px_rgba(212,32,106,0.35)]
-            hover:shadow-[0_8px_40px_rgba(212,32,106,0.55)]
-            hover:scale-[1.02]
-            transition-all duration-300
-          "
+          style={{ background: "linear-gradient(to right, #d4206a, #e84d8a)" }}
+          className="inline-flex items-center justify-center gap-3 w-full max-w-md text-white py-5 rounded-full text-sm uppercase font-bold hover:opacity-90 transition-all duration-300"
         >
           <MessageCircle className="w-5 h-5" />
           Confirm Your Order on WhatsApp
         </a>
 
         <p className="mt-6 text-foreground/75 leading-relaxed">
-          We'll confirm your order, share payment details, and dispatch within 24–48 hours.
+          We confirm your order, share payment details, and dispatch within 24-48 hours.
         </p>
         <p className="mt-3 text-sm italic text-muted-foreground">
           Save your Order ID to track your order anytime.
@@ -103,13 +100,13 @@ function CheckoutPage() {
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Link
             to="/track"
-            className="px-6 py-2.5 rounded-full border border-[#d4af37]/50 text-[#d4af37] text-xs tracking-[0.2em] uppercase hover:bg-[#d4af37]/10 transition-all"
+            className="px-6 py-2.5 rounded-full border border-[#d4af37]/50 text-[#d4af37] text-xs uppercase hover:bg-[#d4af37]/10 transition-all"
           >
             Track Order
           </Link>
           <Link
             to="/shop"
-            className="px-6 py-2.5 rounded-full border border-[#d4206a]/40 text-[#d4206a] text-xs tracking-[0.2em] uppercase hover:bg-[#d4206a]/10 transition-all"
+            className="px-6 py-2.5 rounded-full border border-[#d4206a]/40 text-[#d4206a] text-xs uppercase hover:bg-[#d4206a]/10 transition-all"
           >
             Continue Shopping
           </Link>
@@ -120,8 +117,7 @@ function CheckoutPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const raw = Object.fromEntries(formData.entries());
+    const raw = Object.fromEntries(new FormData(e.currentTarget).entries());
     const parsed = schema.safeParse(raw);
     if (!parsed.success) {
       toast.error(parsed.error.errors[0].message);
@@ -130,14 +126,10 @@ function CheckoutPage() {
 
     setSubmitting(true);
     const orderId = generateOrderId();
-    const itemsPayload = items.map((i) => ({
-      id: i.id, name: i.name, price: i.price, quantity: i.quantity,
-    }));
-
     const { error } = await supabase.from("orders").insert({
       order_id: orderId,
       ...parsed.data,
-      items: itemsPayload,
+      items: items.map((i) => ({ id: i.id, name: i.name, price: i.price, quantity: i.quantity })),
       total: subtotal,
       status: "Pending Confirmation",
       payment_method: "whatsapp_confirmation",
@@ -150,14 +142,19 @@ function CheckoutPage() {
       return;
     }
 
-    const itemList = items.map((i) => `${i.name} x${i.quantity}`).join(", ");
-    const fullAddress = `${parsed.data.customer_address}, ${parsed.data.customer_city}, ${parsed.data.customer_state} - ${parsed.data.customer_pincode}`;
+    const fullAddress = [
+      parsed.data.customer_address,
+      parsed.data.customer_city,
+      parsed.data.customer_state,
+      parsed.data.customer_pincode,
+    ].join(", ");
+
     setConfirmedOrder({
       orderId,
       total: subtotal,
       name: parsed.data.customer_name,
       address: fullAddress,
-      itemList,
+      itemList: items.map((i) => i.name + " x" + i.quantity).join(", "),
     });
     cart.clear();
   };
@@ -194,7 +191,7 @@ function CheckoutPage() {
             {items.map((i) => (
               <div key={i.id} className="flex justify-between text-sm">
                 <span className="text-foreground/80">
-                  {i.name} <span className="text-muted-foreground">×{i.quantity}</span>
+                  {i.name} <span className="text-muted-foreground">x{i.quantity}</span>
                 </span>
                 <span>{formatINR(i.price * i.quantity)}</span>
               </div>
@@ -206,24 +203,16 @@ function CheckoutPage() {
             <span className="text-[#d4af37]">{formatINR(subtotal)}</span>
           </div>
 
-          {/* Place Order — pink button */}
           <button
             disabled={submitting}
-            className="
-              w-full py-4 rounded-full
-              bg-gradient-to-r from-[#d4206a] to-[#e84d8a]
-              text-white text-sm tracking-[0.2em] uppercase font-bold
-              shadow-[0_8px_30px_rgba(212,32,106,0.3)]
-              hover:shadow-[0_8px_40px_rgba(212,32,106,0.5)]
-              hover:scale-[1.02]
-              transition-all duration-300
-              disabled:opacity-50 disabled:scale-100
-            "
+            type="submit"
+            style={{ background: "linear-gradient(to right, #d4206a, #e84d8a)" }}
+            className="w-full py-4 rounded-full text-white text-sm uppercase font-bold hover:opacity-90 transition-all duration-300 disabled:opacity-50"
           >
-            {submitting ? "Placing Order…" : "Place Order ✦"}
+            {submitting ? "Placing Order..." : "Place Order"}
           </button>
 
-          <p className="text-center text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-4">
+          <p className="text-center text-[10px] uppercase text-muted-foreground mt-4">
             Confirm via WhatsApp after placing
           </p>
         </aside>
@@ -242,11 +231,10 @@ function Field({
   pattern?: string;
   inputMode?: "numeric" | "text";
 }) {
-  const cls =
-    "w-full px-4 py-3 rounded-xl bg-background border border-border focus:outline-none focus:border-[#d4206a] focus:ring-2 focus:ring-[#d4206a]/20 transition-all duration-300";
+  const cls = "w-full px-4 py-3 rounded-xl bg-background border border-border focus:outline-none focus:border-[#d4206a] transition-all duration-300";
   return (
     <label className="block">
-      <span className="block text-xs tracking-[0.2em] uppercase text-foreground/70 mb-2">
+      <span className="block text-xs uppercase text-foreground/70 mb-2">
         {label}{required && " *"}
       </span>
       {textarea ? (
