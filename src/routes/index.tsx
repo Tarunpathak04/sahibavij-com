@@ -25,96 +25,230 @@ function HomePage() {
   });
 
   return (
-    <div className="relative bg-[#060006] min-h-screen">
+    <div style={{ background: "#060006", minHeight: "100vh" }}>
 
-      {/* HERO */}
-      <section className="relative w-full min-h-[88svh] lg:min-h-[100svh] overflow-hidden flex flex-col">
-        <div className="absolute inset-0 z-0">
+      {/* ── HERO ── */}
+      <section
+        style={{
+          position: "relative",
+          width: "100%",
+          minHeight: "90vh",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {/* Background */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <img
             src={heroImg}
-            alt="Luxury Background"
+            alt=""
             loading="eager"
-            className="w-full h-full object-cover object-[85%_center] lg:object-center brightness-110"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "85% center",
+              filter: "brightness(1.05)",
+            }}
           />
-          <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#060006]" />
+          {/* Dark overlay */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "rgba(0,0,0,0.42)",
+            }}
+          />
+          {/* Gradient to dark */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 50%, #060006 100%)",
+            }}
+          />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 pt-8 pb-12 sm:px-12 sm:pt-16">
-          <div className="flex flex-col items-start text-left max-w-2xl">
-            <h1
-              className="font-serif leading-[0.9] tracking-tight text-[#f2ebe0] font-light"
-              style={{ fontSize: "clamp(3.2rem, 10vw, 6rem)" }}
+        {/* Content */}
+        <div
+          style={{
+            position: "relative",
+            zIndex: 10,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: "24px 28px 40px",
+          }}
+        >
+          {/* Title */}
+          <h1
+            className="font-serif"
+            style={{
+              fontSize: "clamp(3.5rem, 12vw, 7rem)",
+              lineHeight: 0.88,
+              letterSpacing: "-0.01em",
+              color: "#f2ebe0",
+              fontWeight: 300,
+              textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+              marginBottom: "0",
+            }}
+          >
+            Sahiba
+            <br />
+            <span
+              style={{
+                color: "#d4206a",
+                fontStyle: "italic",
+                fontWeight: 500,
+              }}
             >
-              Sahiba
-              <br />
-              <span className="text-[#d4206a] italic font-medium">Vij</span>
-            </h1>
+              Vij
+            </span>
+          </h1>
 
-            <div className="mt-5 sm:mt-8 flex flex-col items-start">
-              <div className="w-16 sm:w-20 h-px bg-[#d4af37] mb-3" />
-              <p
-                className="tracking-[0.32em] text-[#FFD700] uppercase font-bold"
-                style={{
-                  fontSize: "clamp(9px, 2.5vw, 13px)",
-                  textShadow: "0 2px 10px rgba(0,0,0,0.85), 0 0 18px rgba(255,215,0,0.35)",
-                }}
-              >
-                Every sparkle has its own story
-              </p>
-              <div className="w-16 sm:w-20 h-px bg-[#d4af37] mt-3" />
-            </div>
+          {/* Tagline */}
+          <div style={{ marginTop: "24px" }}>
+            <div
+              style={{
+                height: "1px",
+                width: "70px",
+                background: "#d4af37",
+                marginBottom: "12px",
+              }}
+            />
+            <p
+              style={{
+                fontSize: "clamp(8px, 2.8vw, 12px)",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                color: "#FFD700",
+                fontWeight: 700,
+                textShadow:
+                  "0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.4)",
+              }}
+            >
+              Every sparkle has its own story
+            </p>
+            <div
+              style={{
+                height: "1px",
+                width: "70px",
+                background: "#d4af37",
+                marginTop: "12px",
+              }}
+            />
+          </div>
 
-            <div className="flex flex-wrap gap-3 mt-7 sm:mt-10">
-              <Link
-                to="/shop"
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-[#d4206a] text-white uppercase tracking-widest text-[10px] sm:text-xs font-bold rounded-full hover:opacity-90 hover:scale-105 transition-all"
-              >
-                Explore Collection
-              </Link>
-              <Link
-                to="/about"
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-[#f2ebe0] uppercase tracking-widest text-[10px] sm:text-xs font-bold rounded-full hover:bg-white/20 transition-all"
-              >
-                Our Story
-              </Link>
-            </div>
+          {/* Buttons */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              marginTop: "32px",
+            }}
+          >
+            <Link
+              to="/shop"
+              style={{
+                padding: "13px 28px",
+                background: "#d4206a",
+                color: "white",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                fontSize: "11px",
+                fontWeight: 700,
+                borderRadius: "9999px",
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              Explore Collection
+            </Link>
+            <Link
+              to="/about"
+              style={{
+                padding: "13px 28px",
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.3)",
+                color: "#f2ebe0",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                fontSize: "11px",
+                fontWeight: 700,
+                borderRadius: "9999px",
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              Our Story
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ORNAMENTAL DIVIDER */}
-      <div className="bg-[#060006] pt-8 pb-4">
+      {/* ── DIVIDER ── */}
+      <div style={{ background: "#060006", paddingTop: "32px", paddingBottom: "16px" }}>
         <OrnamentalDivider />
       </div>
 
-      {/* FEATURED COLLECTION */}
-      <section className="bg-[#060006] px-4 sm:px-6 pb-8">
-        <div className="container mx-auto">
-          <div className="text-center mb-6 sm:mb-10">
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#f2ebe0] font-light">
+      {/* ── FEATURED COLLECTION ── */}
+      <section style={{ background: "#060006", padding: "0 16px 32px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "24px" }}>
+            <h2
+              className="font-serif"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", color: "#f2ebe0", fontWeight: 300 }}
+            >
               Featured Collection
             </h2>
           </div>
 
           {featured && featured.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "12px",
+              }}
+            >
               {featured.slice(0, 6).map((product, idx) => (
                 <ProductCard key={product.id} p={product} index={idx} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-[#a89585] text-sm tracking-widest uppercase">
+            <div style={{ textAlign: "center", padding: "48px 0" }}>
+              <p
+                style={{
+                  color: "#a89585",
+                  fontSize: "11px",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Collection coming soon
               </p>
             </div>
           )}
 
-          <div className="text-center mt-8">
+          <div style={{ textAlign: "center", marginTop: "28px" }}>
             <Link
               to="/shop"
-              className="inline-flex items-center gap-2 border border-[#d4af37]/40 text-[#d4af37] px-6 py-3 text-xs uppercase tracking-[0.3em] hover:bg-[#d4af37]/10 transition-all rounded-full"
+              style={{
+                display: "inline-block",
+                border: "1px solid rgba(212,175,55,0.4)",
+                color: "#d4af37",
+                padding: "10px 24px",
+                fontSize: "10px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                borderRadius: "9999px",
+              }}
             >
               View All Pieces
             </Link>
@@ -122,35 +256,75 @@ function HomePage() {
         </div>
       </section>
 
-      {/* DESIGNER */}
-      <section className="bg-[#060006] py-10 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className="aspect-[4/5] overflow-hidden rounded-2xl">
+      {/* ── DESIGNER ── */}
+      <section style={{ background: "#060006", padding: "32px 16px" }}>
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "32px",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/5" }}>
             <img
               src={founderImg}
               alt="Sahiba Vij"
               loading="lazy"
-              className="w-full h-full object-cover"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
           <div>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#d4af37]/80 mb-4">
+            <p
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                color: "rgba(212,175,55,0.8)",
+                marginBottom: "16px",
+              }}
+            >
               Meet the Designer
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl text-[#f2ebe0] mb-6 font-light">
+            <h2
+              className="font-serif"
+              style={{
+                fontSize: "clamp(2rem, 6vw, 3.5rem)",
+                color: "#f2ebe0",
+                fontWeight: 300,
+                marginBottom: "20px",
+                lineHeight: 1.15,
+              }}
+            >
               A muse with{" "}
-              <span className="text-[#d4206a] italic">14 years</span>{" "}
+              <span style={{ color: "#d4206a", fontStyle: "italic" }}>14 years</span>{" "}
               of craft
             </h2>
-            <p className="text-[#a89585] leading-relaxed mb-8">
-              Sahiba Vij blends a Media & Culture Studies background from London
-              with fourteen years of jewellery artistry — creating cinematic,
-              story-driven pieces that feel luxurious while remaining beautifully
-              wearable.
+            <p
+              style={{
+                color: "#a89585",
+                lineHeight: 1.8,
+                marginBottom: "28px",
+                fontSize: "14px",
+              }}
+            >
+              Sahiba Vij blends a Media & Culture Studies background from
+              London with fourteen years of jewellery artistry — creating
+              cinematic, story-driven pieces that feel luxurious while
+              remaining beautifully wearable.
             </p>
             <Link
               to="/about"
-              className="text-xs tracking-[0.3em] uppercase text-[#d4206a] font-bold hover:text-[#d4af37] transition-all"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                color: "#d4206a",
+                fontWeight: 700,
+                textDecoration: "none",
+              }}
             >
               Read Her Story →
             </Link>
@@ -158,7 +332,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* NEWSLETTER */}
+      {/* ── NEWSLETTER ── */}
       <NewsletterSection />
     </div>
   );
@@ -166,16 +340,68 @@ function HomePage() {
 
 function OrnamentalDivider() {
   return (
-    <div className="flex items-center justify-center px-8">
-      <div className="flex items-center gap-2 flex-1 max-w-[140px]">
-        <span className="w-1 h-1 rounded-full bg-[#d4af37]/40" />
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#d4af37]/50" />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]/60" />
-        <span className="w-2 h-2 rounded-full bg-[#d4af37]/80" />
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 32px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          flex: 1,
+          maxWidth: "140px",
+        }}
+      >
+        <span
+          style={{
+            width: "4px",
+            height: "4px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.4)",
+            display: "inline-block",
+          }}
+        />
+        <div
+          style={{
+            flex: 1,
+            height: "1px",
+            background:
+              "linear-gradient(to right, transparent, rgba(212,175,55,0.5))",
+          }}
+        />
+        <span
+          style={{
+            width: "6px",
+            height: "6px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.6)",
+            display: "inline-block",
+          }}
+        />
+        <span
+          style={{
+            width: "8px",
+            height: "8px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.8)",
+            display: "inline-block",
+          }}
+        />
       </div>
 
-      <div className="mx-3">
-        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" className="text-[#d4af37]">
+      <div style={{ margin: "0 12px" }}>
+        <svg
+          width="34"
+          height="34"
+          viewBox="0 0 32 32"
+          fill="none"
+          style={{ color: "#d4af37" }}
+        >
           <g stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
             <line x1="16" y1="2" x2="16" y2="30" />
             <line x1="2" y1="16" x2="30" y2="16" />
@@ -186,20 +412,55 @@ function OrnamentalDivider() {
           <circle cx="16" cy="28.5" r="1" fill="currentColor" opacity="0.55" />
           <circle cx="3.5" cy="16" r="1" fill="currentColor" opacity="0.55" />
           <circle cx="28.5" cy="16" r="1" fill="currentColor" opacity="0.55" />
-          <circle cx="7" cy="7" r="0.8" fill="currentColor" opacity="0.4" />
-          <circle cx="25" cy="7" r="0.8" fill="currentColor" opacity="0.4" />
-          <circle cx="7" cy="25" r="0.8" fill="currentColor" opacity="0.4" />
-          <circle cx="25" cy="25" r="0.8" fill="currentColor" opacity="0.4" />
           <circle cx="16" cy="16" r="4" fill="none" stroke="currentColor" strokeWidth="0.9" opacity="0.7" />
           <circle cx="16" cy="16" r="1.8" fill="currentColor" />
         </svg>
       </div>
 
-      <div className="flex items-center gap-2 flex-1 max-w-[140px]">
-        <span className="w-2 h-2 rounded-full bg-[#d4af37]/80" />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]/60" />
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#d4af37]/50" />
-        <span className="w-1 h-1 rounded-full bg-[#d4af37]/40" />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          flex: 1,
+          maxWidth: "140px",
+        }}
+      >
+        <span
+          style={{
+            width: "8px",
+            height: "8px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.8)",
+            display: "inline-block",
+          }}
+        />
+        <span
+          style={{
+            width: "6px",
+            height: "6px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.6)",
+            display: "inline-block",
+          }}
+        />
+        <div
+          style={{
+            flex: 1,
+            height: "1px",
+            background:
+              "linear-gradient(to left, transparent, rgba(212,175,55,0.5))",
+          }}
+        />
+        <span
+          style={{
+            width: "4px",
+            height: "4px",
+            borderRadius: "9999px",
+            background: "rgba(212,175,55,0.4)",
+            display: "inline-block",
+          }}
+        />
       </div>
     </div>
   );
@@ -213,7 +474,9 @@ function NewsletterSection() {
     e.preventDefault();
     if (!email.includes("@")) return toast.error("Enter a valid email");
     setLoading(true);
-    const { error } = await supabase.from("newsletter_subscribers").insert({ email });
+    const { error } = await supabase
+      .from("newsletter_subscribers")
+      .insert({ email });
     setLoading(false);
     if (error && !error.message.includes("duplicate")) {
       toast.error("Couldn't subscribe. Try again.");
@@ -224,38 +487,101 @@ function NewsletterSection() {
   };
 
   return (
-    <section className="bg-[#060006] py-12 sm:py-16 px-4 sm:px-6">
-      <div className="container mx-auto max-w-2xl text-center">
-        <p className="text-[10px] tracking-[0.35em] uppercase text-[#d4206a] mb-3">
+    <section style={{ background: "#060006", padding: "48px 16px 64px" }}>
+      <div style={{ maxWidth: "560px", margin: "0 auto", textAlign: "center" }}>
+        <p
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.35em",
+            textTransform: "uppercase",
+            color: "#d4206a",
+            marginBottom: "12px",
+          }}
+        >
           Join the Muse List
         </p>
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#f2ebe0] font-light mb-4">
+        <h2
+          className="font-serif"
+          style={{
+            fontSize: "clamp(1.8rem, 5vw, 3rem)",
+            color: "#f2ebe0",
+            fontWeight: 300,
+            marginBottom: "12px",
+          }}
+        >
           Be the first to know
         </h2>
-        <div className="w-12 h-px bg-[#d4af37] mx-auto my-4" />
-        <p className="text-[#a89585] mb-8 text-sm leading-relaxed">
+        <div
+          style={{
+            height: "1px",
+            width: "48px",
+            background: "#d4af37",
+            margin: "16px auto",
+          }}
+        />
+        <p
+          style={{
+            color: "#a89585",
+            fontSize: "13px",
+            lineHeight: 1.7,
+            marginBottom: "28px",
+          }}
+        >
           New collections, limited drops, and quiet stories — straight to your inbox.
         </p>
 
-        <form onSubmit={subscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <form
+          onSubmit={subscribe}
+          style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+        >
           <input
             type="email"
             required
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 px-4 py-3 bg-[#0f0a0d] border border-[#d4af37]/20 text-[#f2ebe0] placeholder:text-[#a89585]/50 focus:outline-none focus:border-[#d4206a] transition-colors rounded-full text-sm"
+            style={{
+              padding: "14px 20px",
+              background: "#0f0a0d",
+              border: "1px solid rgba(212,175,55,0.2)",
+              borderRadius: "9999px",
+              color: "#f2ebe0",
+              fontSize: "14px",
+              outline: "none",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
           />
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-[#d4206a] text-white uppercase text-xs font-bold tracking-widest hover:opacity-90 transition-all rounded-full disabled:opacity-50"
+            style={{
+              padding: "14px 32px",
+              background: "#d4206a",
+              color: "white",
+              border: "none",
+              borderRadius: "9999px",
+              fontSize: "11px",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              cursor: "pointer",
+              opacity: loading ? 0.6 : 1,
+            }}
           >
             {loading ? "..." : "Subscribe"}
           </button>
         </form>
 
-        <p className="text-[9px] tracking-[0.2em] uppercase text-[#a89585]/50 mt-5">
+        <p
+          style={{
+            fontSize: "9px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "rgba(168,149,133,0.4)",
+            marginTop: "16px",
+          }}
+        >
           No spam, only soulful stories.
         </p>
       </div>
