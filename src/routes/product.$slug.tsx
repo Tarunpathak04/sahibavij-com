@@ -76,7 +76,8 @@ function ProductPage() {
           {/* Gallery */}
           <div>
             <div
-              className="relative aspect-square rounded-2xl overflow-hidden bg-[#0f0a0d] border border-white/5 shadow-2xl cursor-zoom-in"
+              className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl cursor-zoom-in"
+              style={{ background: "#0a0508", aspectRatio: "1/1" }}
               onClick={() => setIsZoomed(!isZoomed)}
             >
               <img
@@ -85,6 +86,7 @@ function ProductPage() {
                 className={`w-full h-full object-cover transition-all duration-700 ${
                   isZoomed ? "scale-150" : "scale-100"
                 }`}
+                style={{ padding: "8px", background: "#0a0508" }}
               />
 
               {product.images.length > 1 && (
@@ -142,7 +144,7 @@ function ProductPage() {
                     <img
                       src={img}
                       alt={`${product.name} thumbnail ${i + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                     {i === activeImg && <div className="absolute inset-0 bg-gold/5" />}
                   </button>

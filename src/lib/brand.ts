@@ -1,7 +1,6 @@
 export const BRAND = {
   name: "Sahiba Vij",
   tagline: "Every Sparkle Has Its Own Story",
-  fromTheGarden: "From Our Garden",
   instagram: "https://www.instagram.com/sahibavijjewels",
   whatsappNumber: "+919830228844",
   email: "sahibavij@hotmail.com",
@@ -15,17 +14,15 @@ export const CATEGORIES = [
   { value: "Earrings", label: "Earrings" },
   { value: "rings", label: "Rings" },
   { value: "bangles", label: "Bangles" },
-  { value: "Bridal", label: "Bridal Sets" },
   { value: "Mangtika", label: "Mangtika" },
   { value: "nosepin", label: "Nose Pin" },
 ];
-
 
 export function generateOrderId() {
   const date = new Date();
   const y = date.getFullYear().toString().slice(-2);
   const m = String(date.getMonth() + 1).padStart(2, "0");
   const d = String(date.getDate()).padStart(2, "0");
-  const rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random
+  const rand = Math.floor(1000 + Math.random() * 9000);
   return `SV${y}${m}${d}${rand}`;
 }
