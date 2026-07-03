@@ -18,7 +18,7 @@ function ProductPage() {
 
   // Product find karo
   const product = products.find((p) => p.slug === slug);
-  const related = product 
+  const related = product
     ? products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4)
     : [];
 
@@ -76,17 +76,17 @@ function ProductPage() {
           {/* Gallery */}
           <div>
             <div
-              className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl cursor-zoom-in"
+              className="relative rounded-2xl overflow-hidden ..."
+              style={{ aspectRatio: "3/4", background: "#0a0508" }}
               style={{ background: "#0a0508", aspectRatio: "1/1" }}
               onClick={() => setIsZoomed(!isZoomed)}
             >
               <img
                 src={product.images[activeImg] || product.images[0]}
                 alt={`${product.name} - View ${activeImg + 1}`}
-                className={`w-full h-full object-cover transition-all duration-700 ${
-                  isZoomed ? "scale-150" : "scale-100"
-                }`}
-                style={{ padding: "8px", background: "#0a0508" }}
+                className={`w-full h-full object-contain transition-all duration-700 ${isZoomed ? "scale-150" : "scale-100"
+                  }`}
+                style={{ padding: "12px", background: "#0a0508" }}
               />
 
               {product.images.length > 1 && (
@@ -135,11 +135,10 @@ function ProductPage() {
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`relative flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                      i === activeImg
+                    className={`relative flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 ${i === activeImg
                         ? "border-gold shadow-lg shadow-gold/20 scale-105"
                         : "border-white/10 hover:border-white/30 opacity-60 hover:opacity-100"
-                    }`}
+                      }`}
                   >
                     <img
                       src={img}
