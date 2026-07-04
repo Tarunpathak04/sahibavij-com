@@ -29,8 +29,8 @@ export const products: Product[] = [
   // RA - Silver Statement Ring (₹5450)
   {
     id: "RA",
-    name: "Silver Statement Ring",
-    slug: "silver-statement-ring",
+    name: "Silver Dome Ring",
+    slug: "silver-dome-ring",
     price: 5450,
     category: "rings",
     images: [
@@ -126,12 +126,12 @@ export const products: Product[] = [
       "Wipe with a soft cloth after wear. Avoid perfume and water contact. Store separately in a dry pouch.",
   },
 
-  // RE - Celestial Halo Statement Ring (₹3300)
+  // RE - Celestial Quartz Statement Ring (₹3300)
   {
     id: "RE",
-    name: "Celestial Halo Statement Ring",
-    slug: "celestial-halo-statement-ring",
-    price: 3300,
+    name: "Celestial Quartz Statement Ring",
+    slug: "celestial-quartz-statement-ring",
+    price: 5200,
     category: "rings",
     images: [
       "/products/rings/RE1.webp",
@@ -142,7 +142,7 @@ export const products: Product[] = [
     is_featured: true,
     is_limited_edition: false,
     description:
-      "A masterpiece of brilliance and craftsmanship, this statement adjustable ring features a captivating floral-inspired center surrounded by dazzling round and baguette-cut Swarovski stones. The concentric halo design creates extraordinary sparkle, while the sleek silver-tone finish lends a modern, luxurious appeal.",
+      "A captivating statement ring designed around a beautiful translucent natural-look stone, framed with brilliant sparkling crystals. The sculptural gold-finish setting is accented with a luminous green cabochon, creating a striking contrast and an artistic, one-of-a-kind appeal. Bold, elegant, and effortlessly glamorous, this statement piece is designed to be the centre of attention .",
     story:
       "Made to order — each piece is crafted specially for you. Production time: 10 days.",
     materials:
@@ -189,12 +189,12 @@ export const products: Product[] = [
     materials: "Rose gold-tone finish",
     care_info: "Wipe with soft cloth.",
   },
-  // RH - Sapphire Ring
+  // RH - Silver Statement Ring
   {
     id: "RH",
-    name: "Sapphire Ring",
-    slug: "sapphire-ring",
-    price: 5000,
+    name: "Silver Statement Ring",
+    slug: "silver-statement-ring",
+    price: 6250,
     category: "rings",
     images: [
       "/products/rings/RH1.webp",
@@ -204,16 +204,16 @@ export const products: Product[] = [
     stock_count: 3,
     is_featured: false,
     is_limited_edition: false,
-    description: "Royal sapphire-tone ring with gold accents.",
-    materials: "Gold-tone finish, blue stones",
+    description: "A striking statement ring crafted in sterling silver, featuring a brilliant round-cut center stone surrounded by a dazzling halo of sparkling stones. The intricately designed multi-band silhouette creates a bold yet elegant look, making it the perfect accessory for special occasions or to elevate your everyday style",
+    materials: " Sterling Silver",
     care_info: "Wipe with soft cloth.",
   },
   // RI - Pearl Ring
   {
     id: "RI",
-    name: "Pearl Ring",
-    slug: "pearl-ring",
-    price: 5000,
+    name: "Padmavati Ring",
+    slug: "padmavati-ring",
+    price: 4350,
     category: "rings",
     images: [
       "/products/rings/RI1.webp",
@@ -223,16 +223,16 @@ export const products: Product[] = [
     stock_count: 7,
     is_featured: false,
     is_limited_edition: false,
-    description: "Elegant pearl ring with gold setting.",
+    description: "Inspired by timeless royal elegance, the Padmavati adjustable Ring is a statement piece that beautifully blends intricate craftsmanship with vibrant green stones and brilliant white crystals. The regal peacock-inspired motif, paired with a rich gold finish, makes it a perfect accessory for festive occasions, weddings, and celebrations.",
     materials: "Gold-tone finish, pearl",
     care_info: "Wipe with soft cloth.",
   },
-  // RJ - Vintage Gold Ring
+  // RJ - Silver Solitaire Statement Ring
   {
     id: "RJ",
-    name: "Vintage Gold Ring",
-    slug: "vintage-gold-ring",
-    price: 5000,
+    name: "Silver Solitaire Statement Ring",
+    slug: "silver-solitaire-statement-ring",
+    price: 4800,
     category: "rings",
     images: [
       "/products/rings/RJ1.webp",
@@ -242,9 +242,9 @@ export const products: Product[] = [
     stock_count: 4,
     is_featured: false,
     is_limited_edition: false,
-    description: "Vintage inspired gold ring with intricate detailing.",
+    description: "A timeless statement ring crafted in silver, featuring a brilliant round-cut solitaire at the centre. The elegant multi-band design is intricately set with sparkling stones, creating exceptional brilliance from every angle.Classic yet striking, this versatile piece is perfect for celebrations, evening occasions, or adding a touch of glamour to an everyday look.",
     story: "Inspired by the royal heritage of India.",
-    materials: "Micron gold polish finish",
+    materials: "Crafted in silver",
     care_info: "Wipe with soft cloth. Store in a dry place.",
   },
 
